@@ -1,0 +1,22 @@
+{
+  "name": "nodejs_tutorial",
+  "version": "1.0.0",
+  "description": "Tutorial for Node js GreenByte",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "Tutorial",
+    "Node",
+    "JS",
+    "GreenByte"
+  ],
+  "author": "LER",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2"
+  }
+}
