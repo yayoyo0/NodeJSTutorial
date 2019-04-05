@@ -1,12 +1,50 @@
 <!DOCTYPE html>
-<html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
 <head>
-    <meta charset="utf-8">
-    <title>Example App</title>
+  <meta charset="utf-8" />
+  <title>Color Admin | One Page Parallax Front End Theme</title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+  <meta content="" name="description" />
+  <meta content="" name="author" />
+
+  <!-- ================== BEGIN BASE CSS STYLE ================== -->
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <link href="plugins/bootstrap3/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+  <link href="plugins/animate/animate.min.css" rel="stylesheet" />
+  <link href="css/one-page-parallax/style.min.css" rel="stylesheet" />
+  <link href="css/one-page-parallax/style-responsive.min.css" rel="stylesheet" />
+  <link href="css/one-page-parallax/theme/default.css" id="theme" rel="stylesheet" />
+  <!-- ================== END BASE CSS STYLE ================== -->
+
+  <!-- ================== BEGIN BASE JS ================== -->
+  <script src="plugins/pace/pace.min.js"></script>
+  <!-- ================== END BASE JS ================== -->
 </head>
-<body>
+<body data-spy="scroll" data-target="#header-navbar" data-offset="51">
 
-    {{{body}}}
+  {{{body}}}
 
+  <!-- ================== BEGIN BASE JS ================== -->
+  <script src="plugins/jquery/jquery-3.2.1.min.js"></script>
+  <script src="plugins/bootstrap3/js/bootstrap.min.js"></script>
+  <!--[if lt IE 9]>
+  <script src="crossbrowserjs/html5shiv.js"></script>
+  <script src="crossbrowserjs/respond.min.js"></script>
+  <script src="crossbrowserjs/excanvas.min.js"></script>
+  <![endif]-->
+  <script src="plugins/js-cookie/js.cookie.js"></script>
+  <script src="plugins/scrollMonitor/scrollMonitor.js"></script>
+  <script src="js/one-page-parallax/apps.min.js"></script>
+  <!-- ================== END BASE JS ================== -->
+
+  <script>
+  $(document).ready(function() {
+    App.init();
+  });
+  </script>
 </body>
 </html>
