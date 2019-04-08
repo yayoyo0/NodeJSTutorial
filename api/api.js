@@ -17,7 +17,6 @@ api.get('/users',middleware,(req,res)=>{
 
 api.route('/login')
   .post((req,res)=>{
-    console.log(req.body.email,user.email)
     if(req.body.email == user.email && req.body.password == user.password){
       jwt.sign({ user: user }, secret_key, (err, token) => {
             res.json({ success: true, token: token });

@@ -4,7 +4,6 @@ const jwt = require("jsonwebtoken");
 module.exports = function isLoggedin(req, res, next) {
   const bearerHeader = req.headers["authorization"];
   let user = { email: "prueba@prueba.com", password: "ThisIsNotATest" };
-  console.log(bearerHeader)
   if (typeof bearerHeader !== "undefined") {
     const tokenArray = bearerHeader.split(" ");
     req.token = tokenArray[1];
