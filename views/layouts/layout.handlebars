@@ -44,11 +44,11 @@
 
   <script>
   $(document).ready(function() {
-    var socket = io.connect('http://localhost:1111/test', {reconnect: true});
+    {{!-- var socket = io.connect('http://localhost:1111/test', {reconnect: true});
     socket.emit('message', {type: 'new-add', text: "test"});
     socket.on("reply", (data)=>{
       console.log(data);
-    })
+    }) --}}
     App.init();
   });
   </script>

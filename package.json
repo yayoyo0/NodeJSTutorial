@@ -5,16 +5,23 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
-    "test": "jest"
+    "test": "node --inspect node_modules/.bin/jest --watch --runInBand __tests__"
   },
   "keywords": [
     "Tutorial",
     "Node",
-    "JS",
-    "GreenByte"
+    "JS"
   ],
   "author": "LER",
   "license": "ISC",
+  "jest": {
+    "testEnvironment": "node",
+    "verbose": true,
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "<rootDir>/public"
+    ]
+  },
   "dependencies": {
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.4",
@@ -27,6 +34,7 @@
   },
   "devDependencies": {
     "jest": "^26.0.1",
-    "nodemon": "^1.9.2"
+    "nodemon": "^1.9.2",
+    "supertest": "^4.0.2"
   }
 }

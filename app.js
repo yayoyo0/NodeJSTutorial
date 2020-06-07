@@ -4,8 +4,8 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const app = express();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+// var http = require('http').Server(app);
+// var io = require('socket.io')(http);
 const api = require("./api/api");
 const users = require("./users/users");
 const secret_key = "Tut0r1al";
@@ -13,18 +13,18 @@ const user = { email: "prueba@prueba.com", password: "ThisIsNotATest" };
 const PORT = 1111;
 const check = "/test";
 // Add a connect listener
-io.of(check).on('connection', function(socket) {
+// io.of(check).on('connection', function(socket) {
 
-  console.log('Client connected.');
-  socket.on('message', function(socket, message) {
-    console.dir(socket, message);
-  });
-  socket.emit("reply",{"item-added": "ThisIsNotATest"});
-  // Disconnect listener
-  socket.on('disconnect', function() {
-      console.log('Client disconnected.');
-  });
-});
+//   console.log('Client connected.');
+//   socket.on('message', function(socket, message) {
+//     console.dir(socket, message);
+//   });
+//   socket.emit("reply",{"item-added": "ThisIsNotATest"});
+//   // Disconnect listener
+//   socket.on('disconnect', function() {
+//       console.log('Client disconnected.');
+//   });
+// });
 
 app.use(
   bodyParser.urlencoded({
@@ -118,8 +118,9 @@ app.get('/logout', (req, res) => {
     }
 });
 
-http.listen(PORT, () => {
-  console.log("server started on port: " + PORT);
+app.listen(PORT, () => {
+  // console.log("server started on port: " + PORT);
 });
 
+module.exports = app;
 
