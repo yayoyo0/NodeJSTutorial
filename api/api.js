@@ -1,7 +1,7 @@
 let Router = require("express");
 let api = Router();
 let users = require('../users/users');
-let middleware = require('../middleware/api')
+let middleware = require('../middleware/api');
 let jwt = require("jsonwebtoken");
 const bodyParser = require("body-parser");
 let user = { email: "prueba@prueba.com", password: "ThisIsNotATest" };
