@@ -40,9 +40,15 @@
   <script src="plugins/scrollMonitor/scrollMonitor.js"></script>
   <script src="js/one-page-parallax/apps.min.js"></script>
   <!-- ================== END BASE JS ================== -->
+  <script src = "https://cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.js"></script>
 
   <script>
   $(document).ready(function() {
+    var socket = io.connect('http://localhost:1111/test', {reconnect: true});
+    socket.emit('message', {type: 'new-add', text: "test"});
+    socket.on("reply", (data)=>{
+      console.log(data);
+    })
     App.init();
   });
   </script>

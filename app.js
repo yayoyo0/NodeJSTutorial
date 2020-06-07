@@ -1,14 +1,30 @@
-let express = require("express");
-let exphbs = require("express-handlebars");
-let bodyParser = require("body-parser");
-var cookieParser = require("cookie-parser");
-var session = require("express-session");
-let app = express();
-let api = require("./api/api");
-var users = require("./users/users");
+const express = require("express");
+const exphbs = require("express-handlebars");
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
+const session = require("express-session");
+const app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+const api = require("./api/api");
+const users = require("./users/users");
 const secret_key = "Tut0r1al";
 const user = { email: "prueba@prueba.com", password: "ThisIsNotATest" };
 const PORT = 1111;
+const check = "/test";
+// Add a connect listener
+io.of(check).on('connection', function(socket) {
+
+  console.log('Client connected.');
+  socket.on('message', function(socket, message) {
+    console.dir(socket, message);
+  });
+  socket.emit("reply",{"item-added": "ThisIsNotATest"});
+  // Disconnect listener
+  socket.on('disconnect', function() {
+      console.log('Client disconnected.');
+  });
+});
 
 app.use(
   bodyParser.urlencoded({
@@ -24,6 +40,7 @@ Set Handlebars engine for the front End
 app.engine("handlebars", exphbs({ defaultLayout: "layout" }));
 app.set("view engine", "handlebars");
 app.use(express.static(__dirname + "/public"));
+
 
 // initialize cookie-parser to allow us access the cookies stored in the browser.
 app.use(cookieParser());
@@ -58,6 +75,7 @@ var sessionChecker = (req, res, next) => {
     next();
   }
 };
+
 
 /**
 Set api Routes
@@ -100,6 +118,8 @@ app.get('/logout', (req, res) => {
     }
 });
 
-app.listen(PORT, () => {
+http.listen(PORT, () => {
   console.log("server started on port: " + PORT);
 });
+
+

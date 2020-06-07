@@ -3,5 +3,5 @@ RUN mkdir /app
 COPY . /app
 WORKDIR /app
 RUN npm i
-CMD node /app/app.js &
+CMD npm run start
 EXPOSE 1111
