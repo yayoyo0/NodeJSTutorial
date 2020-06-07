@@ -22,9 +22,9 @@ api.route('/login')
             res.json({ success: true, token: token });
       });
     }else{
-      res.status(403).json({success:false,message:"User not valid"})
+      res.status(403).json({success:false,message:"User not valid"});
     }
 
   })
 // End Routes
-module.exports = api
+module.exports = api;
