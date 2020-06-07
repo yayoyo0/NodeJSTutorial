@@ -71,8 +71,7 @@ app.get("/", (req, res) => {
   res.render("index", { req: req.query });
 });
 
-app
-  .route("/login")
+app.route("/login")
   .get((req, res) => {
     res.render("login", { title: "Login", layout: "login" });
   })

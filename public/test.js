@@ -1,3 +1,3 @@
 $(document).ready(function(){
-  alert("ready from static file")
+  alert("ready from static file");
 })
